@@ -2,7 +2,7 @@ const Thermostat = artifacts.require("Thermostat");
 const Thermostat32 = artifacts.require("Thermostat32");
 const MAX_SECONDS_IN_YEAR = 60*60*24*366;
 //Some parameters you can change:
-const MAX_TIMEPOINTS_IN_TEST = 6; //6, 60, 600, take your pick; lower numbers run faster.
+const MAX_TIMEPOINTS_IN_TEST = 60; //6, 60, 600, take your pick; lower numbers run faster.
 const INTERVAL_BETWEEN_POINTS = 60*60*6; //change temp every 6 hours
 const START_TIME = 1; //seconds in year for first setting; last year wraps around prior to this.
 
@@ -23,7 +23,7 @@ module.exports = function(deployer) {
         var consumption32 = await programThermostat(thermostat32);
         console.log("Consumption in wei for uint32 version: "+consumption32);
         var uintPenaltyPct = (((consumption-consumption32)/consumption32)*100).toFixed(1);
-        //uintPenaltyPct = 32.5% in initial tests
+        //uintPenaltyPct = 32.2-32.5% in initial tests
         console.log("Using uint instead of uint32 resulted in a "+uintPenaltyPct+"% efficiency penalty.");
     }).catch(function(error) {
         console.log("Error processing transactions: "+error);
