@@ -29,7 +29,7 @@ OpenZeppelin's "Ownable" interface is used as a starting point to help control s
 ## To run
 - Clone this repo. Install npm and truffle.  
 - Install and start [Ganache](https://truffleframework.com/ganache) or another Ethereum client of your choice.  
-[This was tested with Ganache 2.0.0-beta2, truffle v5.0.4, Solidity v0.5.0, Node v9.3.0, npm 6.8.0, and Windows 10 Pro.]
+[This was tested with Ganache 2.0.0-beta2 in Quickstart settings, truffle v5.0.4, Solidity v0.5.0, Node v9.3.0, npm 6.8.0, and Windows 10 Pro.]
 - In a shell, navigate to the directory where this repo was cloned.  
 - Run `truffle migrate --reset`.   
 
