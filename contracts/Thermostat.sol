@@ -6,7 +6,7 @@ contract Thermostat is Ownable {
         //Temperatures in millidegrees Celsius
         uint coolMin;
         uint coolMax;
-        uint heatLow;
+        uint heatMin;
         uint heatMax;
     }
 
@@ -15,7 +15,7 @@ contract Thermostat is Ownable {
 
     event coolMinUpdated(uint indexed startTime, uint oldVal, uint newVal);
     event coolMaxUpdated(uint indexed startTime, uint oldVal, uint newVal);
-    event heatLowUpdated(uint indexed startTime, uint oldVal, uint newVal);
+    event heatMinUpdated(uint indexed startTime, uint oldVal, uint newVal);
     event heatMaxUpdated(uint indexed startTime, uint oldVal, uint newVal);
 
     //At this point in the demo development, assume the receiving code handles
@@ -28,8 +28,8 @@ contract Thermostat is Ownable {
         return timespans[startSec].coolMax;
     }
 
-    function heatLow(uint startSec) public view returns (uint) {
-        return timespans[startSec].heatLow;
+    function heatMin(uint startSec) public view returns (uint) {
+        return timespans[startSec].heatMin;
     }
 
     function heatMax(uint startSec) public view returns (uint) {
@@ -47,8 +47,8 @@ contract Thermostat is Ownable {
     }
 
     function setHeatMin(uint startSec, uint newVal) public onlyOwner {
-        emit heatLowUpdated(startSec, timespans[startSec].heatLow, newVal);
-        timespans[startSec].heatLow = newVal;
+        emit heatMinUpdated(startSec, timespans[startSec].heatMin, newVal);
+        timespans[startSec].heatMin = newVal;
     }
 
     function setHeatMax(uint startSec, uint newVal) public onlyOwner {

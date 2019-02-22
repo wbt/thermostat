@@ -23,7 +23,7 @@ module.exports = function(deployer) {
         var consumption32 = await programThermostat(thermostat32);
         console.log("Consumption in wei for uint32 version: "+consumption32);
         var uintPenaltyPct = (((consumption-consumption32)/consumption32)*100).toFixed(1);
-        //uintPenaltyPct = 32.2-32.5% in initial tests
+        //uintPenaltyPct = 32.1-32.5% in initial tests
         console.log("Using uint instead of uint32 resulted in a "+uintPenaltyPct+"% efficiency penalty.");
     }).catch(function(error) {
         console.log("Error processing transactions: "+error);
