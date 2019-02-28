@@ -56,4 +56,12 @@ contract Thermostat32 is Ownable {
         timespans[startSec].heatMax = newVal;
     }
 
+    function turnUpHeat(uint32 startSec, uint32 delta) public onlyOwner {
+        //Note non-use of SafeMath.
+        emit heatMinUpdated(startSec, timespans[startSec].heatMin,
+            timespans[startSec].heatMin += delta);
+        emit heatMaxUpdated(startSec, timespans[startSec].heatMax,
+            timespans[startSec].heatMax += delta);
+    }
+
 }
